@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <script type="module" defer src="script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Weather widget</title>
+  </head>
+  <body>
+    <div class="container">
+      <article class="box">
+        <div class="search-window hidden">
+          <input class="input" type="text" placeholder="City name" />
+          <ion-icon class="btn-search-icon" name="search-outline"></ion-icon>
+        </div>
+
+        <h1 class="city">New York</h1>
+
+        <ion-icon class="icon" name="sunny-outline"></ion-icon>
+
+        <p class="description">This is beautifull Weather</p>
+
+        <p class="temp">Is 29deg</p>
+
+        <button class="btn-open">
+          <ion-icon class="btn-open-icon" name="search-outline"></ion-icon>
+        </button>
+
+        <p class="wind">Wind 5mph</p>
+      </article>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
