@@ -19,6 +19,10 @@ let cityName;
 const API_KEY = "4c1c9db2c8b546bcb6b145935230506";
 ///////////////
 
+const weather = {
+  cityName: "New York",
+};
+
 const openWindow = function () {
   searchWindow.classList.remove("hidden");
   btnOpen.classList.add("hidden");
@@ -53,20 +57,18 @@ const checkWeather = async function (cityName) {
       await fetch(`https://api.weatherapi.com/v1/forecast.json?key=4c1c9db2c8b546bcb6b145935230506&q=${cityName}&days=3&aqi=no&alerts=no
     `);
     const data = await curWeather.json();
-    const dName = data.location.name;
-    const dTemp = data.current.temp_c;
-    const dWind = data.current.wind_kph;
-    const dDescription = data.current.condition.text;
-    const dIcon = data.current.condition.icon;
-    city.textContent = dName;
-    temp.textContent = new String(dTemp) + " °C";
-    wind.textContent = new String(dWind) + " km/h";
-    description.textContent = dDescription;
-    image.src = dIcon;
 
-    const weather = [dName, dTemp, dWind, dDescription, dIcon];
+    weather.cityName = data.location.name;
+    weather.temp = data.current.temp_c;
+    weather.wind = data.current.wind_kph;
+    weather.description = data.current.condition.text;
+    weather.image = data.current.condition.icon;
 
-    return console.log(data);
+    city.textContent = weather.cityName;
+    temp.textContent = new String(weather.temp) + " °C";
+    wind.textContent = new String(weather.wind) + " km/h";
+    description.textContent = weather.description;
+    image.src = weather.image;
   } catch (err) {
     console.error(err.message);
   }
@@ -74,13 +76,15 @@ const checkWeather = async function (cityName) {
 
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
-  cityName = input.value;
+  weather.cityName = input.value;
   if (!input.value) return;
-  console.log(cityName);
 
-  checkWeather(cityName);
-
+  checkWeather(weather.cityName);
   closeWindow();
 });
 
-checkWeather("New York");
+const init = function () {
+  checkWeather(weather.cityName);
+};
+
+init();
