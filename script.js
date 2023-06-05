@@ -6,7 +6,7 @@ const input = document.querySelector(".input");
 const box = document.querySelector(".box");
 const form = document.querySelector(".search-form");
 const city = document.querySelector(".city");
-const icon = document.querySelector(".icon");
+const image = document.querySelector(".image");
 const temp = document.querySelector(".temp");
 const wind = document.querySelector(".wind");
 const description = document.querySelector(".description");
@@ -62,11 +62,11 @@ const checkWeather = async function (cityName) {
     temp.textContent = new String(dTemp) + " °C";
     wind.textContent = new String(dWind) + " km/h";
     description.textContent = dDescription;
-    icon.textContent = dIcon;
+    image.src = dIcon;
 
-    const weather = [name, temp, wind, description, icon.innerHTML];
+    const weather = [dName, dTemp, dWind, dDescription, dIcon];
 
-    return console.log(weather);
+    return console.log(data);
   } catch (err) {
     console.error(err.message);
   }
@@ -82,3 +82,5 @@ form.addEventListener("submit", async function (e) {
 
   closeWindow();
 });
+
+checkWeather("New York");
