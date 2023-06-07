@@ -13,6 +13,7 @@
 .box {
   color: #e7f5ff;
   display: grid;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(7, 1fr);
   align-items: center;
